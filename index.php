@@ -5,16 +5,16 @@ require __DIR__ . '/vendor/autoload.php';
 use EduardoMoralesAlberti\SlackPomodoro\Pomodoro;
 
 if (!is_cli()) {
-  throw new \Exception('Not on client context');
+  echo 'Not on client context' . PHP_EOL;
 }
 
 $ini = parse_ini_file('app.ini');
 if (!isset($ini['user_token'])) {
-  throw new \Exception("User token is not set");
+  echo "User token is not set" . PHP_EOL;
 }
 $token = $ini['user_token'];
 if (!isset($token)) {
-  throw new \Exception("User token is not set");
+  echo "User token is not set" . PHP_EOL;
 }
 
 $pomodoro = new Pomodoro($token);

@@ -25,7 +25,7 @@ class Pomodoro
    */
   public function stop() {
     $this->setStatus('', '', '');
-    echo 'Pomodoro stopped';
+    echo 'Pomodoro stopped' . PHP_EOL;
   }
 
   /**
@@ -33,7 +33,7 @@ class Pomodoro
    */
   public function start() {
     $this->setStatus('Pomodoro time!!', ':tomato:');
-    echo 'Pomodoro started';
+    echo 'Pomodoro started' . PHP_EOL;
   }
 
   /**
@@ -59,9 +59,9 @@ class Pomodoro
         "profile" => $status_json,
       ]);
 
-      echo 'Status changed.';
+      echo 'Status changed.' . PHP_EOL;
     } catch (SlackErrorResponse $e) {
-      echo 'Fail to set status.', PHP_EOL, $e->getMessage();
+      echo 'Fail to set status.', PHP_EOL, $e->getMessage() . PHP_EOL;
     }
   }
 }
