@@ -1,6 +1,14 @@
 {
     "name": "eduardomoralesalberti/slack_pomodoro",
-    "type": "library",
+    "description": "Pomodoro integrated with slack.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Eduardo Morales",
+            "homepage": "https://github.com/Eduardo-Morales-Alberti",
+            "role": "Developer"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "EduardoMoralesAlberti\\SlackPomodoro\\": "src/"
@@ -12,5 +20,4 @@
         "jolicode/slack-php-api": "^3.0",
         "ext-json": "*"
     },
-    "description": "Pomodoro integrated with slack."
-}
+},
