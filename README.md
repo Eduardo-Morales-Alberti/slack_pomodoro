@@ -5,6 +5,7 @@ Easy php application to change your slack status.
 * Clone this repo
 * Run ```composer install```
 * Add your slack OAuth user token to the app.ini file
+* You can configure the status message, the icon and the duration.
 
 ## How to get a slack user token
 * You need a user on slack

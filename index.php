@@ -17,7 +17,12 @@ if (!isset($token)) {
   echo "User token is not set" . PHP_EOL;
 }
 
-$pomodoro = new Pomodoro($token);
+$message = $ini['pomodoro_message'];
+$icon = $ini['pomodoro_icon'];
+$duration = $ini['pomodoro_duration'];
+
+$pomodoro = new Pomodoro($token, $message, $icon, $duration);
+
 switch ($argv[1]) {
   case 'start':
     $pomodoro->start();

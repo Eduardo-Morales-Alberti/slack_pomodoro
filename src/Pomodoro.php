@@ -12,12 +12,58 @@ class Pomodoro
 {
 
   /**
-   * @var \JoliCode\Slack\ClientFactory;
+   * Slack client.
+   *
+   * @var ClientFactory;
    */
   public $client;
-  public function __construct($yourToken)
+
+  /**
+   * Pomodoro options.
+   *
+   * @var array|string[]
+   */
+  private $pomodoroSettings;
+
+  public function __construct($yourToken, $message = NULL, $icon = NULL, $duration = NULL)
   {
     $this->client = ClientFactory::create($yourToken);
+    $message = isset($message) ? $message : 'Pomodoro time!!';
+    $this->setMessage($message);
+    $icon = isset($icon) ? $icon : ':tomato:';
+    $this->setIcon($icon);
+    $duration = isset($duration) ? $duration : '+25 minutes';
+    $this->setDuration($duration);
+  }
+
+  /**
+   * Pomodoro status message.
+   *
+   * @param string $message
+   *  Status message.
+   */
+  public function setMessage($message = 'Pomodoro time!!') {
+    $this->pomodoroSettings['message'] = $message;
+  }
+
+  /**
+   * Pomodoro status icon.
+   *
+   * @param string $icon
+   *   Status icon.
+   */
+  public function setIcon($icon = ':tomato:') {
+    $this->pomodoroSettings['icon'] = $icon;
+  }
+
+  /**
+   * Pomodoro status duration.
+   *
+   * @param string $duration
+   *   Status duration.
+   */
+  public function setDuration($duration = '+25 minutes'){
+    $this->pomodoroSettings['duration'] = $duration;
   }
 
   /**
@@ -32,7 +78,7 @@ class Pomodoro
    * Start pomodoro.
    */
   public function start() {
-    $this->setStatus('Pomodoro time!!', ':tomato:');
+    $this->setStatus($this->pomodoroSettings['message'], $this->pomodoroSettings['icon'], $this->pomodoroSettings['duration']);
     echo 'Pomodoro started' . PHP_EOL;
   }
 
@@ -46,7 +92,7 @@ class Pomodoro
    * @param string $status_expiration
    *   Status string time (+25 minutes by default).
    */
-  private function setStatus($status_message = '', $status_emoji = '', $status_expiration = '+25 minutes') {
+  public function setStatus($status_message = '', $status_emoji = '', $status_expiration = '+25 minutes') {
     try {
       $status = [
          "status_text" => $status_message,
@@ -64,4 +110,5 @@ class Pomodoro
       echo 'Fail to set status.', PHP_EOL, $e->getMessage() . PHP_EOL;
     }
   }
+
 }

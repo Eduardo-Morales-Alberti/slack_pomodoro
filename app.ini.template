@@ -1,3 +1,6 @@
 [user]
-; User token.
-;user_token = 'xoxp-XXXX-XXXX-XXXX-XXXX'
+user_token = 'xoxp-XXXX-XXXX-XXXX-XXXX'
+[pomodoro]
+pomodoro_message = 'Pomodoro Time!!'
+pomodoro_icon = ':tomato:'
+pomodoro_duration = '+25 minutes'
