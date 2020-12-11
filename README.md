@@ -25,7 +25,17 @@ user_token = 'xoxp-XXXX-XXXX-XXXX-XXXX'
 
 ## Add a shortcut
 * Edit/add a bash file ~/.bashrc
-* Add the following lines
+* Add the following lines to the file
 ```
 alias pomodoro="php [repository_folder]/index.php"
+```
+* Registry the new alias
+```
+source ~/.bashrc
+```
+* Try your command
+```
+pomodoro start
+
+pomodoro stop
 ```
