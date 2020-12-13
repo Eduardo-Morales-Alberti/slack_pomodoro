@@ -100,7 +100,7 @@ class Pomodoro
          "status_expiration" => strtotime($status_expiration),
       ];
       $status_json = json_encode($status);
-      // This method requires your token to have the scope "chat:write"
+      // This method requires your token to have the scope "users.profile:write"
       $result = $this->client->usersProfileSet([
         "profile" => $status_json,
       ]);
